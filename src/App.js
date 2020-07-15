@@ -13,6 +13,8 @@ import OtherPic from './OtherPic'
 
 const apodUrl = "https://api.nasa.gov/planetary/apod?api_key=l3mUrJBO7c7KEWvmQf1M4NSn3QjytWBij9jC0Oqd"
 
+const memeAPI = "https://meme-api.herokuapp.com/gimme"
+
 console.log(apodUrl)
 
 function App() {
@@ -20,11 +22,22 @@ function App() {
   const [apodLikes, setApodLikes] = useState(0)
   const [otherLikes, setOtherLikes] = useState(0)
   const [apodData, setApodData] = useState({})
+  const [memeData, setMemeData] = useState({})
 
   useEffect(() => {
     axios.get(apodUrl)
       .then(res => {
         setApodData(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
+
+  useEffect(() => {
+    axios.get(memeAPI)
+      .then(res => {
+        setMemeData(res.data)
       })
       .catch(err => {
         console.log(err)
@@ -46,7 +59,7 @@ function App() {
         </nav>
       </header>
       <Apod apodLikes={apodLikes} apodData={apodData} likePic={likePic}/>
-      <OtherPic otherLikes={otherLikes} likePic={likePic}/>
+      <OtherPic otherLikes={otherLikes} likePic={likePic} memeData={memeData}/>
       <footer>
         <nav>
           <a href="#">Home</a>
