@@ -6,13 +6,13 @@ import axios from 'axios'
 
 const OtherPic =  (props) => {
 
-    const { otherLikes } = props;
+    const { otherLikes, likePic } = props;
 
     return (
         <div>
             <h3>Another One</h3>
             <img src="#" />
-            <button>Like it!</button>
+            <button onClick={(e) => likePic()}>Like it!</button>
             <p>Likes: {otherLikes}</p>
         </div>
     )

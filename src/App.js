@@ -46,7 +46,7 @@ function App() {
         </nav>
       </header>
       <Apod apodLikes={apodLikes} apodData={apodData} likePic={likePic}/>
-      <OtherPic otherLikes={otherLikes} />
+      <OtherPic otherLikes={otherLikes} likePic={likePic}/>
       <footer>
         <nav>
           <a href="#">Home</a>
