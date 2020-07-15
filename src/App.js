@@ -17,10 +17,15 @@ function App() {
 
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+      <header>
+        <nav>
+          <a href="#">Home</a>
+          <a href="https://github.com/loganmetzger">Github</a>
+          <a href="#">Contact</a>
+        </nav>
+      </header>
+      <Apod apodLikes={apodLikes} />
+      <OtherPic otherLikes={otherLikes} />
     </div>
   );
 }
